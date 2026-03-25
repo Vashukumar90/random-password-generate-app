@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SecureGen | Premium Password Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Animation -->
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fa-solid fa-shield-halved"></i> SecureGen
+            </div>
+            <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </header>
+
+        <main class="glass-card">
+            <!-- Password Display Area -->
+            <div class="display-area">
+                <div class="password-output" id="password-display">
+                    <span class="placeholder">Generating...</span>
+                </div>
+                <div class="actions">
+                    <button class="action-btn" id="copy-btn" title="Copy to Clipboard">
+                        <i class="fa-regular fa-copy"></i>
+                    </button>
+                    <button class="action-btn" id="voice-btn" title="Speak Password">
+                        <i class="fa-solid fa-volume-high"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Strength Meter -->
+            <div class="strength-container">
+                <span class="strength-text">Strength: <strong id="strength-label">Medium</strong></span>
+                <div class="strength-bar-bg">
+                    <div class="strength-bar-fill" id="strength-bar"></div>
+                </div>
+            </div>
+
+            <!-- Controls -->
+            <div class="controls">
+                <div class="control-group">
+                    <label>Password Length: <span id="length-val">16</span></label>
+                    <input type="range" id="length-slider" min="4" max="50" value="16">
+                </div>
+
+                <div class="options-grid">
+                    <div class="toggle-item">
+                        <label class="switch">
+                            <input type="checkbox" id="uppercase" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <span>Uppercase (A-Z)</span>
+                    </div>
+                    <div class="toggle-item">
+                        <label class="switch">
+                            <input type="checkbox" id="lowercase" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <span>Lowercase (a-z)</span>
+                    </div>
+                    <div class="toggle-item">
+                        <label class="switch">
+                            <input type="checkbox" id="numbers" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <span>Numbers (0-9)</span>
+                    </div>
+                    <div class="toggle-item">
+                        <label class="switch">
+                            <input type="checkbox" id="symbols" checked>
+                            <span class="slider"></span>
+                        </label>
+                        <span>Symbols (!@#)</span>
+                    </div>
+                    <div class="toggle-item">
+                        <label class="switch">
+                            <input type="checkbox" id="exclude-similar">
+                            <span class="slider"></span>
+                        </label>
+                        <span>Exclude Similar (i,l,1,O,0)</span>
+                    </div>
+                    <div class="toggle-item">
+                        <label class="switch">
+                            <input type="checkbox" id="no-repeat">
+                            <span class="slider"></span>
+                        </label>
+                        <span>No Repeating Chars</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generate Button -->
+            <button class="generate-btn" id="generate-btn">
+                <span>Generate Password</span>
+                <i class="fa-solid fa-arrows-rotate"></i>
+            </button>
+
+            <!-- History Section -->
+            <div class="history-section">
+                <h3>History</h3>
+                <ul id="history-list">
+                    <!-- History items injected here -->
+                </ul>
+                <button class="clear-history" id="clear-history">Clear History</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fa-solid fa-check-circle"></i> Copied to clipboard!
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
